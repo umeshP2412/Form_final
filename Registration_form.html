@@ -1,0 +1,176 @@
+<html>
+<head>
+	<title>Registration Form</title>
+	<link rel="stylesheet" type="text/css" href="style1.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<h1>Registration Form</h1>
+	<div class="fm" align="left">
+	<table>
+		<form name="myForm"  action="submit.html" method="post" autocomplete="on">
+			<tr>
+				<th><label for="fName">&nbsp First Name:</label></th>
+				<th><input type="text" name="fName" id="fName" size="20"></input></th>
+			
+			<th><label for="lName">&nbsp Last Name:</label></th>
+				<th><input type="text" name="lName" id="lName" size="20"></input></th>
+			</tr>
+			<tr>
+			<th><lable for="dob">&nbsp Date of Birth:</lable></th>
+				<th><input type="date" name="dob" id="dob"></input></th>
+			</tr>
+			<tr>
+			<th><lable for="gender">&nbsp Gender:</lable></th>
+				<th><input type="radio" name="gender" id="male" value="male">Male</input>
+				<input type="radio" name="gender" id="female" value="female">Female</input>
+				<input type="radio" name="gender" id="other" value="other">Other</input></th>
+			</tr>
+			<tr>
+			<th><lable for="Number">&nbsp Mobile No. :</lable></th>
+				<!--<select name="Number">
+					<option value="91">India(+91)</option>
+					<option value="975">Bhutan(+975)</option>
+					<option value="61">Aystralia(+61)</option>
+					<option value="1">Canada(+1)</option>	
+				</select>-->
+				<th><input type="number" name="Number" id="Number" value=""></input></th>
+			</tr>
+			<tr>
+			<th><lable for="email">&nbsp Email:</lable></th>
+				<th><input type="text" name="email" id="email"></input><br><br></th>
+			</tr>
+			<tr>
+			<th><lable for="uname">&nbsp Username:</lable></th>
+				<th><input type="text" name="uname" id="uname"></input><br><br></th>
+			</tr>
+			<tr>
+			<th><lable for="passw">&nbsp Password:</lable></th>
+				<th><input type="password" name="passw"></input><br><br></th>
+			</tr>
+			<tr>
+			<th><lable for="Conpassw">&nbsp Confirm Password:</lable></th>
+				<th><input type="password" name="Conpassw"></input></th>
+			</tr>
+			<tr>
+				<th><input type="submit" name="Submit" onclick="return validateForm()" value="Submit" class="btn"></input></th>
+			</tr>
+			
+	</form>
+	</table>
+	</div>
+<script type="text/javascript">
+	function validateForm(){
+		var fn = document.myForm.fName.value;
+		var ln = document.myForm.lName.value;
+		var dob = document.myForm.dob.value;
+		var gender = document.myForm.gender.value;
+		var num = document.myForm.Number.value;
+		var mail = document.myForm.email.value;
+		var uname = document.myForm.uname.value;
+		var pass = document.myForm.passw.value;
+		var conpass = document.myForm.Conpassw.value;
+		var letter = /[a-z]/;
+		var upper  =/[A-Z]/;
+		var number = /[0-9]/;
+		var spchar = /[-!$%^&*()_+|~=`{}\[\]:\/;<>?,.@#]/;
+
+		if(fn == "")
+		{
+			alert('Please provide First Name');
+			return false;
+			//document.Form1.fName.focus();
+		}
+		if(ln == "")
+		{
+			alert('Please provide Last Name');
+			return false;
+		}
+		if(dob == "")
+		{
+			alert('Please provide Date of Birth');
+			return false;
+		}
+		if(gender == "")
+		{
+			alert('Pleasr provide gender');
+			return false;
+		}
+		if(num == "")
+		{
+			alert('Please provide Mobile Number');
+			return false;
+		}
+		if(num.length > 10)
+		{
+			alert('Please provide only 10 digit Number');
+			return false;
+		}
+		if(mail.indexOf("@") == -1)
+		{
+			alert('Please provide proper email address')
+			return false;
+		}
+		if(uname == "")
+		{
+			alert('Please provide Username')
+			return false;
+		}
+		if(pass == "")
+		{
+			alert('Please provide Password')
+			return false;
+		}
+		if(letter.test(pass) == false)
+		{
+			alert('Password must contain atleast one lower character');
+			return false;
+		}
+		if(upper.test(pass) == false)
+		{
+			alert('Password must contain atleast one upper character');
+			return false;
+		}
+		if(number.test(pass) == false)
+		{
+			alert('Password must contain atleast one numeric value');
+			return false;
+		}
+		if(spchar.test(pass) == false)
+		{
+			alert('Password must contain atleast one special character');
+			return false;
+		}
+
+		if(conpass == "")
+		{
+			alert('Please Confirm the password')
+			return false;
+		}
+		if(pass != conpass)
+		{
+			alert('Password and Confirm password is not matching')
+			return false;
+		}
+		if(fn == "" || ln == "" || dob == "" || gender == "" || num == "" || mail == "" || uname == "" || pass == "" || conpass == "")
+		{
+			alert('Something missing');
+			return false;
+		}
+		else{
+			alert('Form submitted successfully')
+		}
+		localStorage.setItem("fName",fn);
+		localStorage.setItem("lName",ln);
+		localStorage.setItem("DOB",dob);
+		localStorage.setItem("Gender",gender);
+		localStorage.setItem("Number",num);
+		localStorage.setItem("Mail",mail);
+		localStorage.setItem("Uname",uname);
+
+	return true;
+	}
+</script>
+</body>	
+
+</html>

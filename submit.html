@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title>Submitted Page</title>
+</head>
+<body>
+	<h1>Form is Submitted Successfully</h1>
+Fname: <span id="Fname"></span><br>
+Lname: <span id="Lname"></span><br>
+DOB: <span id="DOB"></span><br>
+Gender: <span id="Gender"></span><br>
+Mobile Number: <span id="MoNum"></span><br>
+Email: <span id="Email"></span><br>
+User_Name: <span id="Uname"></span><br>
+
+<script type="text/javascript">
+	document.getElementById("Fname").innerHTML= localStorage.getItem("fName");
+	document.getElementById("Lname").innerHTML= localStorage.getItem("lName");
+	document.getElementById("DOB").innerHTML= localStorage.getItem("DOB");
+	document.getElementById("Gender").innerHTML= localStorage.getItem("Gender");
+	document.getElementById("MoNum").innerHTML= localStorage.getItem("Number");
+	document.getElementById("Email").innerHTML= localStorage.getItem("Mail");
+	document.getElementById("Uname").innerHTML= localStorage.getItem("Uname");
+</script>
+</body>
+</html>
